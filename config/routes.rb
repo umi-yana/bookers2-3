@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   resources :books,only: [:show,:index,:create,:edit,:update,:destroy] do
    resource :favorites,only: [:create,:destroy]
-  # いいね機能はbookに紐付く
+     # いいね機能はbookに紐付く
+   resources :book_comments,only:[:create,:destroy]
+  # コメント機能はbookに紐付く
   end
 
   root 'homes#top'
